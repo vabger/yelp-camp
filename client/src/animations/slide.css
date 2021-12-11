@@ -1,0 +1,23 @@
+.animate-slideDown{
+    animation-name: slide-down;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+}
+
+.animate-slideUp{
+    animation-name:slide-up;
+    animation-fill-mode: forwards;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+}
+
+@keyframes slide-down {
+    from{ transform:translateY(-110%) ; -webkit-transform:translateY(-110%) ; -moz-transform:translateY(-110%) ; -ms-transform:translateY(-110%) ; -o-transform:translateY(-110%) ; }
+    to{ transform:translateY(0%) ; -webkit-transform:translateY(0%) ; -moz-transform:translateY(0%) ; -ms-transform:translateY(0%) ; -o-transform:translateY(0%) ; }
+}
+
+@keyframes slide-up {
+    from{ transform:translateY(0%) ; -webkit-transform:translateY(0%) ; -moz-transform:translateY(0%) ; -ms-transform:translateY(0%) ; -o-transform:translateY(0%) ; }
+    to{ transform:translateY(-110%) ; -webkit-transform:translateY(-110%) ; -moz-transform:translateY(-110%) ; -ms-transform:translateY(-110%) ; -o-transform:translateY(-110%) ; }
+}

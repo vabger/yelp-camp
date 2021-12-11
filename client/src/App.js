@@ -38,7 +38,7 @@ function App() {
             element={
               <AlertDismissible
                 variant="danger"
-                duration={5000}
+                duration={20}
                 message="hello world"
                 heading="ERROR!"
               />
