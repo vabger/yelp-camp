@@ -1,11 +1,10 @@
 import {
   LOG_IN_FAILURE,
   LOG_IN_SUCCESS,
-  CLEAR_ERRORS,
+  CLEAR_USER_ERRORS,
 } from "../action-types/usersTypes";
 
 const initialState = {
-  error: {},
   currentUser: {
     loggedIn: false,
     info: {},
@@ -22,7 +21,7 @@ export const usersReducer = (prevState = initialState, action) => {
           loggedIn: true,
           info: action.payload,
         },
-        error: {},
+        error: undefined,
       };
     }
     case LOG_IN_FAILURE: {
@@ -36,13 +35,10 @@ export const usersReducer = (prevState = initialState, action) => {
         },
       };
     }
-    case CLEAR_ERRORS: {
-      return {
-        ...prevState,
-        error: {},
-      };
+    case CLEAR_USER_ERRORS: return {
+      ...prevState,
+      error: undefined
     }
-
     default:
       return prevState;
   }
