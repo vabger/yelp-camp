@@ -10,7 +10,6 @@ import DashBoard from "./components/users/DashBoard";
 import LogIn from "./components/users/LogIn";
 import AlertDismissible from "./components/Alerts/AlertDismissible";
 
-import { CLEAR_ERRORS } from "./redux-store/action-types/usersTypes";
 import { getCurrentUser } from "./redux-store/actions/usersActions";
 
 function App() {
@@ -18,15 +17,15 @@ function App() {
 
   useEffect(() => {
     dispatch(getCurrentUser());
-    dispatch({
-      type: CLEAR_ERRORS,
-    });
   }, [dispatch]);
 
   const userError = useSelector((state) => state.users.error);
   return (
     <div className="App">
+<<<<<<< HEAD
       {console.log(userError)}
+=======
+>>>>>>> master
       {
         userError && <AlertDismissible
           variant="danger"
