@@ -1,13 +1,13 @@
 import {
   CAMPGROUNDS_SUCCESS,
   CAMPGROUNDS_FAILURE,
+  CLEAR_CAMPGROUND_ERRORS,
 } from "../action-types/campgroundsTypes";
 
 const initialCampgroundState = {
   campgrounds: [],
   page: 0,
   limit: 10,
-  error: {},
 };
 export const campgroundsReducer = (
   prevState = initialCampgroundState,
@@ -20,7 +20,7 @@ export const campgroundsReducer = (
         campgrounds: [...prevState.campgrounds, ...action.payload],
         page: prevState.page + 1,
         limit: 4,
-        error: {},
+        error: undefined
       };
     case CAMPGROUNDS_FAILURE:
       return {
@@ -28,6 +28,12 @@ export const campgroundsReducer = (
         error: action.payload,
         campgrounds: initialCampgroundState.campgrounds,
       };
+
+    case CLEAR_CAMPGROUND_ERRORS:
+      return {
+        ...prevState,
+        error: undefined
+      }
     default:
       return {
         ...prevState,
