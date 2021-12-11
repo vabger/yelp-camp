@@ -27,7 +27,7 @@ function LogIn() {
 
   return (
     <Fragment>
-      {currentUser.loggedIn && <Navigate to={state.from.pathname} />}
+      {currentUser.loggedIn && <Navigate to={state ? state.from.pathname : "/"} />}
       <Container className="w-50 pt-5">
         <h1 className="pb-2">Log In</h1>
         <Form onSubmit={handleSubmit}>
