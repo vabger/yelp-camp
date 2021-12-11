@@ -22,10 +22,6 @@ function App() {
   const userError = useSelector((state) => state.users.error);
   return (
     <div className="App">
-<<<<<<< HEAD
-      {console.log(userError)}
-=======
->>>>>>> master
       {
         userError && <AlertDismissible
           variant="danger"
