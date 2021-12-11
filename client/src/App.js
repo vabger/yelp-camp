@@ -10,7 +10,6 @@ import DashBoard from "./components/users/DashBoard";
 import LogIn from "./components/users/LogIn";
 import AlertDismissible from "./components/Alerts/AlertDismissible";
 
-import { CLEAR_ERRORS } from "./redux-store/action-types/usersTypes";
 import { getCurrentUser } from "./redux-store/actions/usersActions";
 
 function App() {
@@ -18,14 +17,18 @@ function App() {
 
   useEffect(() => {
     dispatch(getCurrentUser());
-    dispatch({
-      type: CLEAR_ERRORS,
-    });
   }, [dispatch]);
 
-  const userErrors = useSelector((state) => state.users.error);
+  const userError = useSelector((state) => state.users.error);
   return (
     <div className="App">
+      {
+        userError && <AlertDismissible
+          variant="danger"
+          duration={10}
+          message={userError.message}
+          heading="ERROR!"
+        />}
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -33,17 +36,6 @@ function App() {
           <Route element={<RequireAuth />}>
             <Route path="/users/dashboard" element={<DashBoard />} />
           </Route>
-          <Route
-            path="/alert"
-            element={
-              <AlertDismissible
-                variant="danger"
-                duration={5000}
-                message="hello world"
-                heading="ERROR!"
-              />
-            }
-          />
         </Routes>
       </Router>
     </div>
