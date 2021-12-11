@@ -1,5 +1,5 @@
 .alert{
-    position: absolute;
+    position: fixed;
     margin:auto;
     width:250px;
     font-size: larger;

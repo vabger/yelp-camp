@@ -26,12 +26,14 @@ function App() {
   const userError = useSelector((state) => state.users.error);
   return (
     <div className="App">
-      {userError && <AlertDismissible
-        variant="danger"
-        duration={10}
-        message={userError.message}
-        heading="ERROR!"
-      />}
+      {console.log(userError)}
+      {
+        userError && <AlertDismissible
+          variant="danger"
+          duration={10}
+          message={userError.message}
+          heading="ERROR!"
+        />}
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

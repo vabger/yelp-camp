@@ -9,31 +9,28 @@ import { loadingStart, loadingStop } from "./uiActions";
 import axios from "axios";
 
 export const fetchCampgrounds = () => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const prevState = getState().campgrounds;
+    const { page, limit } = prevState;
+
 
     dispatch(loadingStart(CAMPGROUNDS_FETCH));
-    try {
-      const { page, limit } = prevState;
 
-      const { data } = await axios.get("http://localhost:5000/campgrounds", {
-        params: {
-          page: page,
-          limit: limit,
-        },
-      });
-
+    axios.get("http://localhost:5000/campgrounds", {
+      params: {
+        page: page,
+        limit: limit,
+      },
+    }).then((res) => {
       dispatch({
         type: CAMPGROUNDS_SUCCESS,
-        payload: data.campgrounds,
+        payload: res.data.campgrounds,
       });
-    } catch (err) {
-      dispatch({
-        type: CAMPGROUNDS_FAILURE,
-        payload: err.response.data.error,
-      });
-    } finally {
-      dispatch(loadingStop(CAMPGROUNDS_FETCH));
-    }
-  };
+    }).catch((err) => dispatch({
+      type: CAMPGROUNDS_FAILURE,
+      payload: err.response.data.error,
+    })).finally(() => {
+      dispatch(loadingStop(CAMPGROUNDS_FETCH))
+    })
+  }
 };
