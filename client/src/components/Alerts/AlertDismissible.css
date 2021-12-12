@@ -1,0 +1,22 @@
+.alert{
+    position: fixed;
+    margin:auto;
+    width:250px;
+    font-size: larger;
+}
+
+.alert>.btn-close{
+    font-size: small;
+}
+.progress{
+    height: 7px !important;
+    margin-top: 8px;
+}
+
+
+
+
+
+
+
+

@@ -32,7 +32,6 @@ export const logInUser = (info) => {
         });
       })
       .catch((err) => {
-        console.log(err);
         dispatch({
           type: LOG_IN_FAILURE,
           payload: err.response.data.error,
@@ -45,26 +44,23 @@ export const logInUser = (info) => {
 };
 
 export const getCurrentUser = () => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     dispatch(loadingStart(LOG_IN_INITIATE));
-    try {
-      const { data } = await axios.get("http://localhost:5000/users/current", {
-        withCredentials: true,
-      });
 
-      const userInfo = data.currentUser;
-
+    axios.get("http://localhost:5000/users/current", {
+      withCredentials: true,
+    }).then((res) => {
       dispatch({
         type: LOG_IN_SUCCESS,
-        payload: userInfo,
+        payload: res.data.currentUser,
       });
-    } catch (err) {
+    }).catch((err) => {
       dispatch({
         type: LOG_IN_FAILURE,
         payload: err.response.data.error,
       });
-    } finally {
+    }).finally(() => {
       dispatch(loadingStop(LOG_IN_INITIATE));
-    }
+    })
   };
 };
