@@ -11,15 +11,25 @@ import LogIn from "./components/users/LogIn";
 import AlertDismissible from "./components/Alerts/AlertDismissible";
 
 import { getCurrentUser } from "./redux-store/actions/usersActions";
+import { checkIfLoading } from "./redux-store/selectors/uiSelectors";
+import { LOG_IN_INITIATE } from "./redux-store/action-types/usersTypes";
+import LoadingBars from "./components/loading/LoadingBars";
 
 function App() {
   const dispatch = useDispatch();
+
+  const isLoading = useSelector(checkIfLoading(LOG_IN_INITIATE));
 
   useEffect(() => {
     dispatch(getCurrentUser({ withErrors: false }));
   }, [dispatch]);
 
   const userError = useSelector((state) => state.users.error);
+
+  if (isLoading) {
+    return <LoadingBars />
+  }
+
   return (
     <div className="App">
       {
