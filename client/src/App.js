@@ -16,7 +16,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCurrentUser());
+    dispatch(getCurrentUser({ withErrors: false }));
   }, [dispatch]);
 
   const userError = useSelector((state) => state.users.error);

@@ -1,4 +1,5 @@
 import {
+  CLEAR_USER_ERRORS,
   LOG_IN_FAILURE,
   LOG_IN_INITIATE,
   LOG_IN_SUCCESS,
@@ -43,7 +44,7 @@ export const logInUser = (info) => {
   };
 };
 
-export const getCurrentUser = () => {
+export const getCurrentUser = ({ withErrors = true }) => {
   return (dispatch, getState) => {
     dispatch(loadingStart(LOG_IN_INITIATE));
 
@@ -59,6 +60,9 @@ export const getCurrentUser = () => {
         type: LOG_IN_FAILURE,
         payload: err.response.data.error,
       });
+      if (!withErrors) {
+        dispatch({ type: CLEAR_USER_ERRORS })
+      }
     }).finally(() => {
       dispatch(loadingStop(LOG_IN_INITIATE));
     })
