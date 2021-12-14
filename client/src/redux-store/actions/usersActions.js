@@ -44,7 +44,7 @@ export const logInUser = (info) => {
   };
 };
 
-export const getCurrentUser = ({ withErrors = true }) => {
+export const getCurrentUser = () => {
   return (dispatch, getState) => {
     dispatch(loadingStart(LOG_IN_INITIATE));
 
@@ -60,9 +60,7 @@ export const getCurrentUser = ({ withErrors = true }) => {
         type: LOG_IN_FAILURE,
         payload: err.response.data.error,
       });
-      if (!withErrors) {
-        dispatch({ type: CLEAR_USER_ERRORS })
-      }
+
     }).finally(() => {
       dispatch(loadingStop(LOG_IN_INITIATE));
     })

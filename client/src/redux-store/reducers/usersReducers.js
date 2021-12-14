@@ -1,7 +1,6 @@
 import {
   LOG_IN_FAILURE,
   LOG_IN_SUCCESS,
-  CLEAR_USER_ERRORS,
 } from "../action-types/usersTypes";
 
 const initialState = {
@@ -34,10 +33,6 @@ export const usersReducer = (prevState = initialState, action) => {
           info: {},
         },
       };
-    }
-    case CLEAR_USER_ERRORS: return {
-      ...prevState,
-      error: undefined
     }
     default:
       return prevState;

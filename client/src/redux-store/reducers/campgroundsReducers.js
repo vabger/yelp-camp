@@ -1,7 +1,6 @@
 import {
   CAMPGROUNDS_SUCCESS,
   CAMPGROUNDS_FAILURE,
-  CLEAR_CAMPGROUND_ERRORS,
 } from "../action-types/campgroundsTypes";
 
 const initialCampgroundState = {
@@ -29,11 +28,6 @@ export const campgroundsReducer = (
         campgrounds: initialCampgroundState.campgrounds,
       };
 
-    case CLEAR_CAMPGROUND_ERRORS:
-      return {
-        ...prevState,
-        error: undefined
-      }
     default:
       return {
         ...prevState,

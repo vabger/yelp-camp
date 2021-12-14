@@ -1,44 +1,18 @@
-import { useEffect } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./components/Home";
 import RequireAuth from "./components/RequireAuth";
 import DashBoard from "./components/users/DashBoard";
 import LogIn from "./components/users/LogIn";
-import AlertDismissible from "./components/Alerts/AlertDismissible";
 
-import { getCurrentUser } from "./redux-store/actions/usersActions";
-import { checkIfLoading } from "./redux-store/selectors/uiSelectors";
-import { LOG_IN_INITIATE } from "./redux-store/action-types/usersTypes";
-import LoadingBars from "./components/loading/LoadingBars";
+import UserErrors from "./components/Errors/UserErrors";
+
 
 function App() {
-  const dispatch = useDispatch();
-
-  const isLoading = useSelector(checkIfLoading(LOG_IN_INITIATE));
-
-  useEffect(() => {
-    dispatch(getCurrentUser({ withErrors: false }));
-  }, [dispatch]);
-
-  const userError = useSelector((state) => state.users.error);
-
-  if (isLoading) {
-    return <LoadingBars />
-  }
 
   return (
     <div className="App">
-      {
-        userError && <AlertDismissible
-          variant="danger"
-          duration={10}
-          message={userError.message}
-          heading="ERROR!"
-        />}
+      <UserErrors />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
