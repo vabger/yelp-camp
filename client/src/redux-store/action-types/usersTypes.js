@@ -1,5 +1,3 @@
 export const LOG_IN_INITIATE = "LOG_IN_INITIATE";
 export const LOG_IN_SUCCESS = "LOG_IN_SUCCESS";
 export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
-
-export const CLEAR_USER_ERRORS = 'CLEAR_USER_ERRORS'
