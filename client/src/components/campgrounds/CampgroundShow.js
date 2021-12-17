@@ -7,8 +7,8 @@ import { getCampgroundById } from '../../redux-store/actions/campgroundsActions'
 import { checkIfLoading } from '../../redux-store/selectors/uiSelectors'
 
 import { useParams } from 'react-router-dom'
-import CampgroundCarousel from '../CampgroundCarousel/CampgroundCarousel'
-import DetailsPanel from '../DetailsPanel/DetailsPanel'
+import CampgroundCarousel from './CampgroundCarousel/CampgroundCarousel'
+import DetailsPanel from './DetailsPanel/DetailsPanel'
 
 import "./CampgroundShow.css"
 

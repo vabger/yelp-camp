@@ -2,10 +2,10 @@ import React from 'react'
 
 import "./CampgroundCarousel.css"
 
-import next from "../../icons/right-arrow.png"
-import previous from "../../icons/left-arrow.png"
+import next from "../../../icons/right-arrow.png"
+import previous from "../../../icons/left-arrow.png"
 
-function CampgroundCarousel({ images }) {
+function CampgroundCarousel({ className, images }) {
 
     const mapButton = (image, index) => {
         if (index === 0)
