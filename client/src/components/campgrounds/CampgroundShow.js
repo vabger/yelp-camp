@@ -9,7 +9,6 @@ import CampgroundCarousel from './CampgroundCarousel/CampgroundCarousel'
 import DetailsPanel from './DetailsPanel/DetailsPanel'
 
 import "./CampgroundShow.css"
-import Reviews from './Reviews/Reviews'
 
 function CampgroundShow() {
 
