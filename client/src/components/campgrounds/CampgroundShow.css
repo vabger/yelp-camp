@@ -1,0 +1,12 @@
+.show{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width:858px){
+    .show{
+        display: block;
+        padding: 5px;
+    }
+
+}

@@ -1,6 +1,8 @@
 import {
   CAMPGROUNDS_SUCCESS,
   CAMPGROUNDS_FAILURE,
+  CAMPGROUND_BY_ID_SUCCESS,
+  CAMPGROUND_BY_ID_FAILURE,
 } from "../action-types/campgroundsTypes";
 
 const initialCampgroundState = {
@@ -27,6 +29,19 @@ export const campgroundsReducer = (
         error: action.payload,
         campgrounds: initialCampgroundState.campgrounds,
       };
+
+    case CAMPGROUND_BY_ID_SUCCESS:
+      return {
+        ...prevState,
+        error: null,
+        campgroundDetails: action.payload
+      };
+    case CAMPGROUND_BY_ID_FAILURE:
+      return {
+        ...prevState,
+        error: action.payload,
+        campgroundDetails: null
+      }
 
     default:
       return {

@@ -1,5 +1,7 @@
 import React from "react";
-import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+
+import { Link } from "react-router-dom"
 
 function CampgroundHome({ campground }) {
   return (
@@ -18,7 +20,7 @@ function CampgroundHome({ campground }) {
             <ListGroupItem>{"$" + campground.price}</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Button href="#">Show</Button>
+            <Link className="btn btn-primary" to={"/campgrounds/" + campground._id}>Show</Link>
           </Card.Body>
         </Card>
       )}
