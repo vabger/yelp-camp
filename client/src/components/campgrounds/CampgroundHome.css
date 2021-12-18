@@ -1,0 +1,9 @@
+.homeCard{
+    width:30rem;
+}
+
+@media screen and (max-width:528px) {
+    .homeCard{
+        width:90vw;
+    }
+}

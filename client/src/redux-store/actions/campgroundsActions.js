@@ -19,7 +19,7 @@ export const fetchCampgrounds = () => {
 
     dispatch(loadingStart(CAMPGROUNDS_FETCH));
 
-    axios.get("http://localhost:5000/campgrounds", {
+    axios.get("/campgrounds", {
       params: {
         page: page,
         limit: limit,
@@ -41,7 +41,7 @@ export const fetchCampgrounds = () => {
 export const getCampgroundById = (id) => {
   return (dispatch, getState) => {
     dispatch(loadingStart(CAMPGROUND_BY_ID_FETCH))
-    axios.get(`http://localhost:5000/campgrounds/${id}`)
+    axios.get(`/campgrounds/${id}`)
       .then((res) => {
         dispatch({ type: CAMPGROUND_BY_ID_SUCCESS, payload: res.data.campground })
       })

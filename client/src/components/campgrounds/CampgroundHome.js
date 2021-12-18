@@ -3,11 +3,13 @@ import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
 import { Link } from "react-router-dom"
 
+import "./CampgroundHome.css"
+
 function CampgroundHome({ campground }) {
   return (
     <div style={{ marginBottom: "20px" }}>
       {campground && (
-        <Card style={{ width: "30rem" }}>
+        <Card className="homeCard">
           <Card.Img variant="top" src={campground.images[0].url} />
           <Card.Body>
             <Card.Title>{campground.title}</Card.Title>

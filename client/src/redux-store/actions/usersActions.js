@@ -1,5 +1,4 @@
 import {
-  CLEAR_USER_ERRORS,
   LOG_IN_FAILURE,
   LOG_IN_INITIATE,
   LOG_IN_SUCCESS,
@@ -13,7 +12,7 @@ export const logInUser = (info) => {
     dispatch(loadingStart(LOG_IN_INITIATE));
     axios
       .post(
-        "http://localhost:5000/users/login",
+        "/users/login",
         {
           email: info.email,
           password: info.password,
@@ -48,7 +47,7 @@ export const getCurrentUser = () => {
   return (dispatch, getState) => {
     dispatch(loadingStart(LOG_IN_INITIATE));
 
-    axios.get("http://localhost:5000/users/current", {
+    axios.get("/users/current", {
       withCredentials: true,
     }).then((res) => {
       dispatch({

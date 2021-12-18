@@ -32,13 +32,13 @@ const seedDB = async () => {
       price: 10.0,
       images: [
         {
-          url: "http://localhost:5000/uploads/campgrounds/" + i + ".jpg",
+          url: "/uploads/campgrounds/" + i + ".jpg",
         },
         {
-          url: "http://localhost:5000/uploads/campgrounds/" + (i + 1) + ".jpg",
+          url: "/uploads/campgrounds/" + (i + 1) + ".jpg",
         },
         {
-          url: "http://localhost:5000/uploads/campgrounds/" + (i + 2) + ".jpg",
+          url: "/uploads/campgrounds/" + (i + 2) + ".jpg",
         }
       ],
       createdBy: await User.findById("617feffcef180a484d94291d"),
